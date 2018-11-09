@@ -1,1 +1,1 @@
-qemu-system-arm -nographic -M virt -m 128 -kernel arm_kernel # -serial stdio
+qemu-system-arm -M versatilepb -m 128M -kernel kernel
