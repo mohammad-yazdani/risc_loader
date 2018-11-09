@@ -1,7 +1,7 @@
 ENTRY(_reset)
 SECTIONS
 {
-	. = 0x10000; /* Apparently QEMU starts here */
+	. = 0x0; /* Start point */
 	.boot . : { boot.o(.text) }
 	.text : { *(.text) }
 	.data : { *(.data) }

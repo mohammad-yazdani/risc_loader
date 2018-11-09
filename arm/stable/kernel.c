@@ -42,6 +42,29 @@ sysprintln(const char * buff)
 	putc('\n');
 }
 
+void software_interrupt () __attribute__ ((interrupt ("SWI")));
+
+void
+software_interrupt() {
+	volatile unsigned int call_id;
+	// Fetch system call number
+	asm("ldr r0, [lr, #-4]");
+	asm("bic r0, #0xFF000000");
+	asm("mov %0, r0":"=r"(call_id):);
+
+	switch (call_id) {
+		case 1:
+			sysprintln("System call 1 :)");
+			break;
+		case 2:
+			sysprintln("Syscall 2 :/");
+			break;
+		default:
+			sysprintln("Sysca ... oh come on!");
+			break;
+	}
+}
+
 int
 kmain() 
 {
@@ -49,5 +72,15 @@ kmain()
 	
 	sysprintln(icon);
 	sysprintln("SYS: Yeeeee budddd!");
+
+	sysprintln("Now let's do some system calls...");
+
+
+
+	asm volatile ("SVC 0x1"); // SVC is a supervisor call and causes a SWI
+	asm volatile ("SVC 0x2");
+	asm volatile ("SVC 0x5"); 
+
+	while(1) {}
 	return 0;
 }
