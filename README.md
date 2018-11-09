@@ -17,4 +17,4 @@ on the QEMU terminal enter:
 ##### For ARM
 `cd arm/stable`
 
-`./qbuild.sh && ./boot.sh`
+`make debug`
