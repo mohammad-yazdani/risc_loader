@@ -1,19 +1,17 @@
 interrupt_vector_table:
-	b . @ Reset
-	b . @ Exception handler
-	b . @ Interrupt handler (software)
-	b . @ DK
-	b . @ DK
-	b . @ DK
-	b . @ DK
-	b . @ DK
+    b . @ Reset entry point
+    b . @ Exception hanlder
+    b . @ sw interrupts
+    b . @ TODO : Find out
+    b . @ TODO : Find out
+    b . @ TODO : Find out
+    b . @ TODO : Find out
+    b . @ TODO : Find out
 
-.comm stack, 0x8000 @ Allocate 32k stack
+.comm stack, 0x10000 @ Reserve 64k stack allcoated
 _start:
-	.global _start
-	ldr sp, =stack+0x8000 @ Load in stack and point to it with sp
-	bl kmain @ Enter the main function
-
-1:
-	b 1b @ Branch into loop
-
+    .global _start
+    ldr sp, =stack+0x10000 @ Point to beginning of stack
+    bl kmain @ Enter kernel kmain function
+1: 
+    b 1b @ Loop branching
