@@ -4,7 +4,7 @@
 #### Docs
 LaTex slides are in the slide folder.
 
-#### Build and Run [MIPS and ARM COMING SOON!!]
+#### Build and Run [MIPS COMING SOON!!]
 ##### For SPARC
 `cd spark`
 
@@ -13,3 +13,8 @@ LaTex slides are in the slide folder.
 on the QEMU terminal enter:
 
 `boot cdrom`
+
+##### For ARM
+`cd arm/stable`
+
+`./qbuild.sh && ./boot.sh`
