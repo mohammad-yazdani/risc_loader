@@ -43,6 +43,7 @@ The process of booloading a toy kernel on SPARC is partly easy, partly interesti
         \item ARM has a very good feature and that is the Interrupt Vector Table that is located at reset.
         \item Interrupt and Exception handling is located in the beginning table and it makes the process of implementing them much easier, specially for embedded systems because of simplicity.
         \item Even though it was harder and took longer to boot ARM, the code looks cleaner and the linking process is more straight forward. This is mostly because of the Interrupt Vector Table.
+        \item Implementing system calls in ARM (or rather SWI handlers for SVC calls) was also realtively straight forward with some inline assembly.
     \end{itemize}
 \end{frame}
 
