@@ -25,3 +25,4 @@ gdb: bootable
  
 clean:
 	rm *.o bootable
+	rm *.bin
